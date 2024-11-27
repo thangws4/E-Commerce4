@@ -100,29 +100,47 @@ public class ManagerController {
     }
 
     // Lấy tất cả các khách hàng
+    @PreAuthorize("hasRole('MANAGER')")
     @GetMapping("/customer")
     public List<Customer> getAllCustomers() {
         return customerService.getAllCustomers();
     }
 
     // Lấy một khách hàng theo ID
+    @PreAuthorize("hasRole('MANAGER')")
     @GetMapping("/cutomer/{customerId}")
     public ResponseEntity<Customer> getCustomerById(@PathVariable Integer customerId) {
         return ResponseEntity.ok(customerService.getCustomerById(customerId));
     }
 
+    // Xóa một khách hàng theo ID
+    @PreAuthorize("hasRole('MANAGER')")
+    @DeleteMapping("/cutomer/{customerId}")
+    public ResponseEntity<Void> deleteCustomer(@PathVariable Integer customerId) {
+        customerService.deleteCustomer(customerId);
+        return ResponseEntity.noContent().build();
+    }
 
     // Lấy tất cả shops
+    @PreAuthorize("hasRole('MANAGER')")
     @GetMapping(("/shop"))
     public List<Shop> getAllShops() {
         return shopService.getAllShops();
     }
 
     // Lấy shop theo ID
+    @PreAuthorize("hasRole('MANAGER')")
     @GetMapping("/shop/{shopId}")
     public ResponseEntity<Shop> getShopById(@PathVariable Integer shopId) {
         return ResponseEntity.ok(shopService.getShopById(shopId));
     }
 
+    // Xóa shop theo ID
+    @PreAuthorize("hasRole('MANAGER')")
+    @DeleteMapping("/shop/{shopId}")
+    public ResponseEntity<Void> deleteShop(@PathVariable Integer shopId) {
+        shopService.deleteShop(shopId);
+        return ResponseEntity.noContent().build();
+    }
 
 }

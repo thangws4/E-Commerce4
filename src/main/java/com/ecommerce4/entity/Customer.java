@@ -26,6 +26,12 @@ public class Customer {
     )
     private Set<Voucher> vouchers;
 
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Cart> carts;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Order> orders;
+
     // Getters and setters
     public Integer getCustomerId() {
         return customerId;

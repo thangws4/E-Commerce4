@@ -2,6 +2,8 @@ package com.ecommerce4.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 public class Cart {
     @Id
@@ -11,6 +13,9 @@ public class Cart {
     @ManyToOne
     @JoinColumn(name = "customerId")
     private Customer customer;
+
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<CartItem> cartItems;
 
     // Getters and setters
 

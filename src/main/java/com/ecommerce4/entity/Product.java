@@ -2,6 +2,8 @@ package com.ecommerce4.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 public class Product {
     @Id
@@ -20,6 +22,9 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "categoryId")
     private Category category;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<ProductImage> productImage;
 
     // Getters and setters
 

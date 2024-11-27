@@ -3,6 +3,7 @@ package com.ecommerce4.entity;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "orders") // Avoid using the reserved keyword 'order'
@@ -23,6 +24,9 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "voucherId", nullable = true)
     private Voucher voucher;
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<OrderDetail> orderDetails;
 
     // Getters and setters
     public Integer getOrderId() {
