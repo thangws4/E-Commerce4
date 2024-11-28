@@ -963,6 +963,70 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Delete Customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGFuZ25kIiwiaWF0IjoxNzMyNjgyNDgxLCJleHAiOjE3MzI2ODI1ODl9.uauyriG3GP4Q0kdEJL6aoi_hJ3jxj8KAxznlaQg11iA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/manager/8/customer/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"manager",
+								"8",
+								"customer",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Shop",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGFuZ25kIiwiaWF0IjoxNzMyNzU4NDIwLCJleHAiOjE3MzI3NTg1Mjh9.FRkd2v0TMHJ2x5OnWSziwff63tt77Nta_tSDLpI1deI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/manager/8/shop/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"manager",
+								"8",
+								"shop",
+								"4"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},

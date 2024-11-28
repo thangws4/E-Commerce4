@@ -108,14 +108,14 @@ public class ManagerController {
 
     // Lấy một khách hàng theo ID
     @PreAuthorize("hasRole('MANAGER')")
-    @GetMapping("/cutomer/{customerId}")
+    @GetMapping("/customer/{customerId}")
     public ResponseEntity<Customer> getCustomerById(@PathVariable Integer customerId) {
         return ResponseEntity.ok(customerService.getCustomerById(customerId));
     }
 
     // Xóa một khách hàng theo ID
     @PreAuthorize("hasRole('MANAGER')")
-    @DeleteMapping("/cutomer/{customerId}")
+    @DeleteMapping("/customer/{customerId}")
     public ResponseEntity<Void> deleteCustomer(@PathVariable Integer customerId) {
         customerService.deleteCustomer(customerId);
         return ResponseEntity.noContent().build();
